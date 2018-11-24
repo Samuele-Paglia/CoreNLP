@@ -10,7 +10,10 @@ apply plugin: 'jacoco'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 compileJava.options.encoding = 'UTF-8'
-
+//forzo compilazione test UTF_8
+compileTestJava.options.encoding = 'UTF-8'
+javadoc.options.encoding = 'UTF-8'
+//////////////////////////
 version = '3.9.2'
 
 // Gradle application plugin
@@ -20,7 +23,7 @@ repositories {
 }
 
 jacoco {
-    toolVersion = "0.7.1.201405082137"
+    toolVersion = "0.8.2"
 }
 // Jar creation
 jar {
