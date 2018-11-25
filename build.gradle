@@ -5,27 +5,17 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'application'
-apply plugin: 'jacoco'
+
 // Gradle java plugin
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 compileJava.options.encoding = 'UTF-8'
-//forzo compilazione test UTF_8
-compileTestJava.options.encoding = 'UTF-8'
-javadoc.options.encoding = 'UTF-8'
-//////////////////////////
+
 version = '3.9.2'
 
 // Gradle application plugin
 mainClassName = "edu.stanford.nlp.pipeline.StanfordCoreNLP"
-repositories {
-    mavenCentral()
-}
 
-jacoco {
-    toolVersion = "0.8.2"
-    reportsDir = file("$buildDir/reports/jacoco")
-}
 // Jar creation
 jar {
     manifest {
@@ -49,11 +39,6 @@ sourceSets {
     java.srcDirs = ['src/']
     resources.srcDirs = ['src/']
   }
-  test {
-        java {
-            srcDirs = ['test']
-        }
-  }
 }
 
 task listDeps {
@@ -65,8 +50,6 @@ task listDeps {
 dependencies {
   compile fileTree(dir: 'lib', include: '*.jar')
   testCompile fileTree(dir: 'liblocal', include: '*.jar')
-
-//  testCompile "junit:junit:3.8.2"
 }
 
 // Eclipse plugin setup
