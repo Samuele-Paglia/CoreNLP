@@ -10,6 +10,13 @@ pipeline {
         	steps {
         		sh 'gradle --info sonarqube'
         	}
-        }        
+        }
+	stage("Quality Gate") {
+		steps {
+			timeout(time: 20, unit: 'MINUTES') {
+				waitForQualityGate abortPipeline: true
+			}
+		}
+	}        
     }
 }
