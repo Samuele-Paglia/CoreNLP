@@ -1,6 +1,6 @@
 node {
     stage('Checkout SCM'){
-        git url: 'https://github.com/Samuele-Paglia/CoreNLP'
+        checkout scm
     }
 	stage('Build') {
 		sh 'gradle build'
