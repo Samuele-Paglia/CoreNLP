@@ -1,0 +1,24 @@
+node {
+    stage('Checkout SCM'){
+        git '/home/samu/GitHub/CITrial'
+    }
+	stage('Build') {
+		sh 'gradle build'
+	}
+	stage('SonarQube Analysis') {
+		withSonarQubeEnv('sonarqube') {
+			sh 'gradle --info sonarqube'
+		}
+	}
+}
+stage("Quality Gate") {
+	timeout(time: 20, unit: 'MINUTES') {
+		def qg = waitForQualityGate()
+		if (qg.status!='OK' & qg.status!='WARN') {
+			error "Pipeline aborted due to quality gate failure: ${qg.status}"
+		} else if (qg.status=='WARN') {
+			currentBuild.result='UNSTABLE'
+			echo "The ${currentBuild.result} state is due to quality gate result: ${qg.status}"
+		}
+	}
+}
