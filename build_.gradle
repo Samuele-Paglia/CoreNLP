@@ -1,0 +1,58 @@
+//
+// Stanford CoreNLP build specification for 
+// Gradle.
+//
+plugins {
+  id "org.sonarqube" version "2.6.2"  //Gradle Central Plugin Repository (plugin dependency must include a version number for this source)
+  id "jacoco"
+}
+
+apply plugin: 'java'
+
+
+repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+}
+
+// Gradle java plugin
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+compileJava.options.encoding = 'UTF-8'
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        csv.enabled false
+        html.destination file("${buildDir}/reports/jacocoHtml")
+    }
+}
+
+// Gradle application plugin
+//mainClassName = "edu.stanford.nlp.pipeline.StanfordCoreNLP"
+
+// Add src-extra build target
+sourceSets {
+  main {
+    java.srcDirs = ['src/']
+    resources.srcDirs = ['src/']
+  }
+  test {
+        java {
+            srcDirs = ['test']
+        }
+  }
+}
+
+dependencies {
+  compile fileTree(dir: 'lib', include: '*.jar')
+  testCompile fileTree(dir: 'liblocal', include: '*.jar')
+}
+
+sonarqube {
+    properties {
+		property "sonar.language", "java"
+		property "sonar.exclusions" , "src/edu/stanford/nlp/process/Morpha.java , src/edu/stanford/nlp/process/PTBLexer.java, src/edu/stanford/nlp/process/PTB2TextLexer.java , src/edu/stanford/nlp/process/JFlexDummyLexer.java, src/edu/stanford/nlp/process/WhitespaceLexer.java, src/edu/stanford/nlp/pipeline/CoreNLPProtos.java , src/edu/stanford/nlp/semgraph/semgrex/Token.java, src/edu/stanford/nlp/trees/tregex/Token.java, src/edu/stanford/nlp/trees/tregex/TregexParser.java, src/edu/stanford/nlp/semgraph/semgrex/SemgrexParser.java, src/edu/stanford/nlp/semgraph/semgrex/TokenMgrError.java,src/edu/stanford/nlp/trees/tregex/TokenMgrError.java,src/edu/stanford/nlp/semgraph/semgrex/ParseException.java,src/edu/stanford/nlp/trees/tregex/ParseException.java,src/edu/stanford/nlp/semgraph/semgrex/SimpleCharStream.java,src/edu/stanford/nlp/trees/tregex/SimpleCharStream.java,src/edu/stanford/nlp/trees/tregex/TregexParserConstants.java,src/edu/stanford/nlp/semgraph/semgrex/SemgrexParserConstants.java,src/edu/stanford/nlp/trees/tregex/TregexParserTokenManager.java,src/edu/stanford/nlp/semgraph/semgrex/SemgrexParserTokenManager.java,src/edu/stanford/nlp/trees/tregex/tsurgeon/Node.java,src/edu/stanford/nlp/ling/tokensregex/parser/Token.java,src/edu/stanford/nlp/trees/tregex/tsurgeon/Token.java,src/edu/stanford/nlp/trees/international/pennchinese/CHTBLexer.java,src/edu/stanford/nlp/trees/international/negra/NegraLexer.java,src/edu/stanford/nlp/trees/tregex/tsurgeon/SimpleNode.java,src/edu/stanford/nlp/international/arabic/process/ArabicLexer.java,src/edu/stanford/nlp/international/french/process/FrenchLexer.java,src/edu/stanford/nlp/international/spanish/process/SpanishLexer.java,src/edu/stanford/nlp/ling/tokensregex/parser/TokenMgrError.java,src/edu/stanford/nlp/trees/tregex/tsurgeon/TokenMgrError.java,src/edu/stanford/nlp/ling/tokensregex/parser/ParseException.java,src/edu/stanford/nlp/trees/international/negra/NegraPennLexer.java,src/edu/stanford/nlp/trees/tregex/tsurgeon/ParseException.java,src/edu/stanford/nlp/trees/tregex/tsurgeon/TsurgeonParser.java,src/edu/stanford/nlp/ling/tokensregex/parser/SimpleCharStream.java,src/edu/stanford/nlp/trees/tregex/tsurgeon/SimpleCharStream.java,src/edu/stanford/nlp/loglinear/model/proto/ConcatVectorProto.java,src/edu/stanford/nlp/ling/tokensregex/parser/TokenSequenceParser.java,src/edu/stanford/nlp/loglinear/model/proto/GraphicalModelProto.java,src/edu/stanford/nlp/loglinear/model/proto/ConcatVectorTableProto.java,src/edu/stanford/nlp/trees/tregex/tsurgeon/JJTTsurgeonParserState.java,src/edu/stanford/nlp/trees/tregex/tsurgeon/TsurgeonParserConstants.java,src/edu/stanford/nlp/trees/tregex/tsurgeon/TsurgeonParserTokenManager.java,src/edu/stanford/nlp/trees/tregex/tsurgeon/TsurgeonParserTreeConstants.java,src/edu/stanford/nlp/ling/tokensregex/parser/TokenSequenceParserConstants.java,src/edu/stanford/nlp/ling/tokensregex/parser/TokenSequenceParserTokenManager.java,src/edu/stanford/nlp/ie/pascal/DefaultTeXHyphenData.java,src/edu/stanford/nlp/ling/tokensregex/matcher/TrieMapMatcher.java,src/edu/stanford/nlp/sequences/SeqClassifierFlags.java"
+    }
+}
