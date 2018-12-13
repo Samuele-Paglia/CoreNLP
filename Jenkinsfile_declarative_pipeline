@@ -1,7 +1,7 @@
 pipeline {
 	agent any
 	tools {
-		gradle "gradle:4.10.3"
+		gradle 'gradle:4.10.3'
 	}
 	stages {
 		stage('Build') {
@@ -17,12 +17,17 @@ pipeline {
 				}
 			}
 		}
-		stage("Quality Gate") {
+		stage('Quality Gate') {
 			steps {
 				sh 'echo "Skipping sonarqube quality gate check..."'/*
 				timeout(time: 20, unit: 'MINUTES') {
 					waitForQualityGate abortPipeline: true
 				}*/
+			}
+		}
+		stage('Delivery'){
+			steps {
+				sh 'gradle publish'
 			}
 		}
 	}
