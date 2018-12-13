@@ -27,7 +27,7 @@ pipeline {
 		}
 		stage('Delivery'){
 			steps {
-				sh 'gradle publish -x javadoc'
+				sh 'gradle publish -Pversion=1.0.${env.BUILD_NUMBER} -x javadoc'
 			}
 		}
 	}

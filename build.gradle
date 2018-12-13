@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'sweng.projects'
-version = '1.0.0+'
+version = '${version}'
 
 apply plugin: 'java'
 apply plugin: 'maven'
