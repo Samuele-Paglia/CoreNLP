@@ -27,7 +27,7 @@ pipeline {
 		}
 		stage('Delivery'){
 			steps {
-				sh 'gradle publish'
+				sh 'gradle publish -x javadoc'
 			}
 		}
 	}
