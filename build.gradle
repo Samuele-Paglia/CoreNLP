@@ -1,18 +1,20 @@
-//
-// Stanford CoreNLP build specification for 
-// Gradle.
-//
 plugins {
-  id "org.sonarqube" version "2.6.2"  //Gradle Central Plugin Repository (plugin dependency must include a version number for this source)
-  id "jacoco"
+  id 'org.sonarqube' version '2.6.2'  //Gradle Central Plugin Repository (plugin dependency must include a version number for this source)
+  id 'jacoco'
+  id 'java-library'
+  id 'maven-publish'
 }
 
-apply plugin: 'java'
+group = 'sweng.projects'
+version = '1.0.+'
 
+apply plugin: 'java'
+apply plugin: 'maven'
 
 repositories {
+	mavenCentral()
     maven {
-      url "https://plugins.gradle.org/m2/"
+    	url "${nexusUrl}/repository/sweng.projects/"
     }
 }
 
@@ -54,5 +56,39 @@ sonarqube {
     properties {
 		property "sonar.language", "java"
 		property "sonar.exclusions" , "src/edu/stanford/nlp/process/Morpha.java , src/edu/stanford/nlp/process/PTBLexer.java, src/edu/stanford/nlp/process/PTB2TextLexer.java , src/edu/stanford/nlp/process/JFlexDummyLexer.java, src/edu/stanford/nlp/process/WhitespaceLexer.java, src/edu/stanford/nlp/pipeline/CoreNLPProtos.java , src/edu/stanford/nlp/semgraph/semgrex/Token.java, src/edu/stanford/nlp/trees/tregex/Token.java, src/edu/stanford/nlp/trees/tregex/TregexParser.java, src/edu/stanford/nlp/semgraph/semgrex/SemgrexParser.java, src/edu/stanford/nlp/semgraph/semgrex/TokenMgrError.java,src/edu/stanford/nlp/trees/tregex/TokenMgrError.java,src/edu/stanford/nlp/semgraph/semgrex/ParseException.java,src/edu/stanford/nlp/trees/tregex/ParseException.java,src/edu/stanford/nlp/semgraph/semgrex/SimpleCharStream.java,src/edu/stanford/nlp/trees/tregex/SimpleCharStream.java,src/edu/stanford/nlp/trees/tregex/TregexParserConstants.java,src/edu/stanford/nlp/semgraph/semgrex/SemgrexParserConstants.java,src/edu/stanford/nlp/trees/tregex/TregexParserTokenManager.java,src/edu/stanford/nlp/semgraph/semgrex/SemgrexParserTokenManager.java,src/edu/stanford/nlp/trees/tregex/tsurgeon/Node.java,src/edu/stanford/nlp/ling/tokensregex/parser/Token.java,src/edu/stanford/nlp/trees/tregex/tsurgeon/Token.java,src/edu/stanford/nlp/trees/international/pennchinese/CHTBLexer.java,src/edu/stanford/nlp/trees/international/negra/NegraLexer.java,src/edu/stanford/nlp/trees/tregex/tsurgeon/SimpleNode.java,src/edu/stanford/nlp/international/arabic/process/ArabicLexer.java,src/edu/stanford/nlp/international/french/process/FrenchLexer.java,src/edu/stanford/nlp/international/spanish/process/SpanishLexer.java,src/edu/stanford/nlp/ling/tokensregex/parser/TokenMgrError.java,src/edu/stanford/nlp/trees/tregex/tsurgeon/TokenMgrError.java,src/edu/stanford/nlp/ling/tokensregex/parser/ParseException.java,src/edu/stanford/nlp/trees/international/negra/NegraPennLexer.java,src/edu/stanford/nlp/trees/tregex/tsurgeon/ParseException.java,src/edu/stanford/nlp/trees/tregex/tsurgeon/TsurgeonParser.java,src/edu/stanford/nlp/ling/tokensregex/parser/SimpleCharStream.java,src/edu/stanford/nlp/trees/tregex/tsurgeon/SimpleCharStream.java,src/edu/stanford/nlp/loglinear/model/proto/ConcatVectorProto.java,src/edu/stanford/nlp/ling/tokensregex/parser/TokenSequenceParser.java,src/edu/stanford/nlp/loglinear/model/proto/GraphicalModelProto.java,src/edu/stanford/nlp/loglinear/model/proto/ConcatVectorTableProto.java,src/edu/stanford/nlp/trees/tregex/tsurgeon/JJTTsurgeonParserState.java,src/edu/stanford/nlp/trees/tregex/tsurgeon/TsurgeonParserConstants.java,src/edu/stanford/nlp/trees/tregex/tsurgeon/TsurgeonParserTokenManager.java,src/edu/stanford/nlp/trees/tregex/tsurgeon/TsurgeonParserTreeConstants.java,src/edu/stanford/nlp/ling/tokensregex/parser/TokenSequenceParserConstants.java,src/edu/stanford/nlp/ling/tokensregex/parser/TokenSequenceParserTokenManager.java,src/edu/stanford/nlp/ie/pascal/DefaultTeXHyphenData.java,src/edu/stanford/nlp/ling/tokensregex/matcher/TrieMapMatcher.java,src/edu/stanford/nlp/sequences/SeqClassifierFlags.java"
+    }
+}
+
+task sourcesJar(type: Jar) {
+	classifier = 'sources'
+    from sourceSets.main.allJava
+}
+
+task javadocJar(type: Jar) {
+	classifier = 'javadoc'
+    from javadoc
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = 'CITrial'
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+            
+        }
+    }
+    repositories {
+        maven {
+        	credentials {
+        		username nexusUsername
+        		password nexusPassword
+        	}
+            // change URLs to point to your repos, e.g. http://my.org/repo
+            def releasesRepoUrl = "${nexusUrl}/repository/sweng-releases/"
+            def snapshotsRepoUrl = "${nexusUrl}/repository/sweng-snapshots/"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+        }
     }
 }
