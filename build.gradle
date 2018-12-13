@@ -72,11 +72,10 @@ task javadocJar(type: Jar) {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            artifactId = 'CITrial'
+            artifactId = 'CoreNLP'
             from components.java
             artifact sourcesJar
             artifact javadocJar
-            
         }
     }
     repositories {
