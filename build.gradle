@@ -50,6 +50,7 @@ sourceSets {
 dependencies {
   compile fileTree(dir: 'lib', include: '*.jar')
   testCompile fileTree(dir: 'liblocal', include: '*.jar')
+  testCompile files('/var/lib/evosuite/evosuite-1.0.6.jar')
 }
 
 sonarqube {
