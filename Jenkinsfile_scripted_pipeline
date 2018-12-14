@@ -28,6 +28,11 @@ node {
 				}
 			}*/
 		}
+		stage('Delivery'){
+			steps {
+				sh "gradle publish -Pversion=1.0.${env.BUILD_NUMBER} -x javadoc"
+			}
+		}
 	} catch (e) {
 		currentBuild.result = 'FAILURE'
 		throw e
