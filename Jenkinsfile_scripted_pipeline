@@ -11,13 +11,11 @@ node {
 		}
 		stage('SonarQube Analysis') {
 			withSonarQubeEnv('sonarqube') {
-				//sh 'gradle sonarqube'
-				sh 'echo "Skipping sonarqube analysis..."'
+				sh 'gradle sonarqube'
 			}
 		}
 		stage("Quality Gate") {
 			currentBuild.result = 'SUCCESS'
-			sh 'echo "Skipping sonarqube quality gate check..."'/*
 			timeout(time: 20, unit: 'MINUTES') {
 				def qg = waitForQualityGate()
 				if (qg.status != 'OK' & qg.status != 'WARN') {
@@ -26,7 +24,7 @@ node {
 					currentBuild.result = 'UNSTABLE'
 					echo "The ${currentBuild.result} state is due to quality gate result: ${qg.status}"
 				}
-			}*/
+			}
 		}
 		stage('Delivery'){
 			sh "gradle publish -Pversion=1.0.${env.BUILD_NUMBER} -x javadoc"
