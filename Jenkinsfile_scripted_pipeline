@@ -11,13 +11,11 @@ node {
 		}
 		stage('SonarQube Analysis') {
 			withSonarQubeEnv('sonarqube') {
-				sh 'gradle --stacktrace sonarqube'
-				//sh 'echo "Skipping sonarqube analysis..."'
+				sh 'gradle --info sonarqube'
 			}
 		}
 		stage("Quality Gate") {
 			currentBuild.result = 'SUCCESS'
-			//sh 'echo "Skipping sonarqube analysis..."'
 			timeout(time: 20, unit: 'MINUTES') {
 				def qg = waitForQualityGate()
 				if (qg.status != 'OK' & qg.status != 'WARN') {
@@ -29,7 +27,9 @@ node {
 			}
 		}
 		stage('Delivery'){
-			sh "gradle publish -Pversion=1.0.${env.BUILD_NUMBER} -x javadoc"
+			if(currentBuild.result == 'SUCCESS'){
+				sh "gradle publish -Pversion=1.0.${env.BUILD_NUMBER} -x javadoc"
+			}
 		}
 	} catch (e) {
 		currentBuild.result = 'FAILURE'
