@@ -34,4 +34,47 @@ import org.xml.sax.SAXParseException;
  
 public class XMLUtils_ESTest extends XMLUtils_ESTest_scaffolding {
 
+	@Test(timeout = 4000)
+  public void test00()  throws Throwable  {
+      XMLUtils.XMLTag xMLUtils_XMLTag0 = XMLUtils.parseTag("&sup3;");
+      assertNull(xMLUtils_XMLTag0);
+  }
+
+  @Test(timeout = 4000)
+  public void test01()  throws Throwable  {
+      XMLUtils.XMLTag xMLUtils_XMLTag0 = null;
+      try {
+        xMLUtils_XMLTag0 = new XMLUtils.XMLTag(")Zt1?)S0<f");
+        fail("Expecting exception: IllegalArgumentException");
+      
+      } catch(IllegalArgumentException e) {
+         //
+         // Tag did not start with <
+         //
+         verifyException("edu.stanford.nlp.util.XMLUtils$XMLTag", e);
+      }
+  }
+
+  @Test(timeout = 4000)
+  public void test02()  throws Throwable  {
+      String string0 = XMLUtils.escapeAttributeXML("n2N~4LJ(}J!+%IHpWe");
+      assertEquals("n2N~4LJ(}J!+%IHpWe", string0);
+  }
+  @Ignore
+  @Test(timeout = 4000)
+  public void test03()  throws Throwable  {
+      ObjectBank.PathToFileFunction objectBank_PathToFileFunction0 = new ObjectBank.PathToFileFunction();
+      MockFile mockFile0 = (MockFile)objectBank_PathToFileFunction0.apply("");
+      List<String> list0 = XMLUtils.getTextContentFromTagsFromFile(mockFile0, "");
+      assertEquals(0, list0.size());
+  }
+
+  @Test(timeout = 4000)
+  public void test04()  throws Throwable  {
+      ObjectBank.PathToFileFunction objectBank_PathToFileFunction0 = new ObjectBank.PathToFileFunction();
+      File file0 = objectBank_PathToFileFunction0.apply("");
+      List<Element> list0 = XMLUtils.getTagElementsFromFile(file0, "");
+      assertTrue(list0.isEmpty());
+  }
+
 }
