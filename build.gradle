@@ -31,9 +31,6 @@ jacocoTestReport {
     }
 }
 
-// Gradle application plugin
-//mainClassName = "edu.stanford.nlp.pipeline.StanfordCoreNLP"
-
 // Add src-extra build target
 sourceSets {
   main {
