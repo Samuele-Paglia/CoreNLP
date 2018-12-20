@@ -407,19 +407,6 @@ public class StringUtils_ESTest extends StringUtils_ESTest_scaffolding {
   }
 
   @Test(timeout = 4000)
-  public void test04()  throws Throwable  {
-      String string0 = "";
-      int int0 = (-2621);
-      // Undeclared exception!
-      try { 
-        StringUtils.padLeftOrTrim("", (-2621));
-        fail("Expecting exception: StringIndexOutOfBoundsException");
-      
-      } catch(StringIndexOutOfBoundsException e) {
-      }
-  }
-
-  @Test(timeout = 4000)
   public void test05()  throws Throwable  {
       String string0 = "";
       String string1 = StringUtils.getBaseName("", "");
