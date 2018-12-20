@@ -77,4 +77,39 @@ public class XMLUtils_ESTest extends XMLUtils_ESTest_scaffolding {
       assertTrue(list0.isEmpty());
   }
 
+  @Ignore
+  @Test(timeout = 4000)
+  public void test05()  throws Throwable  {
+      MockFile mockFile0 = new MockFile("");
+      List<Triple<String, Element, String>> list0 = XMLUtils.getTagElementTriplesFromFile(mockFile0, "GWhw<} ");
+      assertTrue(list0.isEmpty());
+  }
+
+  @Test(timeout = 4000)
+  public void test06()  throws Throwable  {
+      String string0 = XMLUtils.unescapeStringForXML("");
+      assertEquals("", string0);
+  }
+
+  @Test(timeout = 4000)
+  public void test07()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("");
+      String string0 = XMLUtils.readUntilTag(stringReader0);
+      assertEquals("", string0);
+  }
+  @Ignore
+  @Test(timeout = 4000)
+  public void test08()  throws Throwable  {
+      MockFile mockFile0 = new MockFile(")l/:c96", "");
+      List<String> list0 = XMLUtils.getTextContentFromTagsFromFile(mockFile0, "~|5]G4Ylj(=q8$w;2Qn");
+      assertEquals(0, list0.size());
+  }
+  @Ignore
+  @Test(timeout = 4000)
+  public void test09()  throws Throwable  {
+      ObjectBank.PathToFileFunction objectBank_PathToFileFunction0 = new ObjectBank.PathToFileFunction();
+      MockFile mockFile0 = (MockFile)objectBank_PathToFileFunction0.apply("eCPf+!J|aHtX>N");
+      List<Element> list0 = XMLUtils.getTagElementsFromFile(mockFile0, "");
+      assertEquals(0, list0.size());
+  }
 }

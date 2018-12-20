@@ -405,5 +405,424 @@ public class StringUtils_ESTest extends StringUtils_ESTest_scaffolding {
       } catch(StringIndexOutOfBoundsException e) {
       }
   }
+
+  @Test(timeout = 4000)
+  public void test04()  throws Throwable  {
+      String string0 = "";
+      int int0 = (-2621);
+      // Undeclared exception!
+      try { 
+        StringUtils.padLeftOrTrim("", (-2621));
+        fail("Expecting exception: StringIndexOutOfBoundsException");
+      
+      } catch(StringIndexOutOfBoundsException e) {
+      }
+  }
+
+  @Test(timeout = 4000)
+  public void test05()  throws Throwable  {
+      String string0 = "";
+      String string1 = StringUtils.getBaseName("", "");
+      assertNotNull(string1);
+      assertTrue(string1.equals((Object)string0));
+      assertEquals("", string1);
+      
+      Object[][] objectArray0 = new Object[2][7];
+      Object[] objectArray1 = new Object[3];
+      objectArray1[0] = (Object) "";
+      Class<CategoryWordTag> class0 = CategoryWordTag.class;
+      String string2 = null;
+      String[] stringArray0 = new String[6];
+      stringArray0[0] = "";
+      stringArray0[1] = "";
+      stringArray0[2] = "";
+      String string3 = "nCB%pa %";
+      stringArray0[3] = "nCB%pa %";
+      stringArray0[4] = null;
+      stringArray0[5] = null;
+      // Undeclared exception!
+      try { 
+        StringUtils.columnStringToObject((Class) class0, "", (String) null, stringArray0);
+        fail("Expecting exception: NullPointerException");
+      
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+
+  @Test(timeout = 4000)
+  public void test06()  throws Throwable  {
+      Object[][] objectArray0 = new Object[8][3];
+      Object[] objectArray1 = new Object[2];
+      Class<Object> class0 = Object.class;
+      String string0 = "";
+      String string1 = "n|cBP/pZrpP.be1tk6X";
+      RegexStringFilter regexStringFilter0 = new RegexStringFilter("n|cBP/pZrpP.be1tk6X");
+      assertNotNull(regexStringFilter0);
+      
+      Pattern pattern0 = regexStringFilter0.pattern;
+      assertEquals(0, pattern0.flags());
+      assertEquals("n|cBP/pZrpP.be1tk6X", pattern0.pattern());
+      assertEquals("n|cBP/pZrpP.be1tk6X", pattern0.toString());
+      assertNotNull(pattern0);
+      
+      String[] stringArray0 = new String[0];
+      // Undeclared exception!
+      try { 
+        StringUtils.columnStringToObject((Class<?>) class0, "", pattern0, stringArray0);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // 0
+         //
+         verifyException("edu.stanford.nlp.util.StringUtils", e);
+      }
+  }
+
+  @Test(timeout = 4000)
+  public void test07()  throws Throwable  {
+      String string0 = "";
+      List<List<String>> list0 = StringUtils.splitFieldsFast("", "");
+      assertTrue(list0.isEmpty());
+      assertEquals(0, list0.size());
+      assertNotNull(list0);
+      
+      TreeSet<TypesafeMap.Key<Pattern>> treeSet0 = new TreeSet<TypesafeMap.Key<Pattern>>();
+      assertNotNull(treeSet0);
+      
+      TypesafeMap.Key<Pattern> typesafeMap_Key0 = (TypesafeMap.Key<Pattern>) mock(TypesafeMap.Key.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        treeSet0.add(typesafeMap_Key0);
+        fail("Expecting exception: ClassCastException");
+      
+      } catch(ClassCastException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }
+  @Ignore
+  @Test(timeout = 4000)
+  public void test08()  throws Throwable  {
+      String string0 = ":e%Ekhk";
+      MockFile mockFile0 = new MockFile(":e%Ekhk", ":e%Ekhk");
+      assertNotNull(mockFile0);
+      
+      Path path0 = mockFile0.toPath();
+      assertEquals(0L, mockFile0.getUsableSpace());
+      assertFalse(mockFile0.isHidden());
+      assertTrue(mockFile0.isFile());
+      assertFalse(mockFile0.exists());
+      assertFalse(mockFile0.canRead());
+      assertEquals(0L, mockFile0.getTotalSpace());
+      assertEquals(":e%Ekhk", mockFile0.getName());
+      assertEquals(0L, mockFile0.getFreeSpace());
+      assertEquals("/home/samu/GitHub/CoreNLP/:e%Ekhk", mockFile0.getParent());
+      assertEquals("/home/samu/GitHub/CoreNLP/:e%Ekhk/:e%Ekhk", mockFile0.toString());
+      assertFalse(mockFile0.canExecute());
+      assertTrue(mockFile0.isAbsolute());
+      assertFalse(mockFile0.isDirectory());
+      assertEquals(0L, mockFile0.lastModified());
+      assertFalse(mockFile0.canWrite());
+      assertEquals(0L, mockFile0.length());
+      assertNotNull(path0);
+      
+      boolean boolean0 = mockFile0.setWritable(true);
+      assertEquals(0L, mockFile0.getUsableSpace());
+      assertFalse(mockFile0.isHidden());
+      assertTrue(mockFile0.isFile());
+      assertFalse(mockFile0.exists());
+      assertFalse(mockFile0.canRead());
+      assertEquals(0L, mockFile0.getTotalSpace());
+      assertEquals(":e%Ekhk", mockFile0.getName());
+      assertEquals(0L, mockFile0.getFreeSpace());
+      assertEquals("/home/samu/GitHub/CoreNLP/:e%Ekhk", mockFile0.getParent());
+      assertEquals("/home/samu/GitHub/CoreNLP/:e%Ekhk/:e%Ekhk", mockFile0.toString());
+      assertFalse(mockFile0.canExecute());
+      assertTrue(mockFile0.isAbsolute());
+      assertFalse(mockFile0.isDirectory());
+      assertEquals(0L, mockFile0.lastModified());
+      assertFalse(mockFile0.canWrite());
+      assertEquals(0L, mockFile0.length());
+      assertFalse(boolean0);
+      
+      StringUtils.printToFile((File) mockFile0, ":e%Ekhk", false, false, ":e%Ekhk");
+      assertEquals(0L, mockFile0.getUsableSpace());
+      assertTrue(mockFile0.canWrite());
+      assertFalse(mockFile0.isHidden());
+      assertTrue(mockFile0.canRead());
+      assertTrue(mockFile0.isFile());
+      assertEquals(0L, mockFile0.getTotalSpace());
+      assertEquals(":e%Ekhk", mockFile0.getName());
+      assertEquals(0L, mockFile0.getFreeSpace());
+      assertTrue(mockFile0.exists());
+      assertEquals("/home/samu/GitHub/CoreNLP/:e%Ekhk", mockFile0.getParent());
+      assertEquals("/home/samu/GitHub/CoreNLP/:e%Ekhk/:e%Ekhk", mockFile0.toString());
+      assertEquals(1392409281320L, mockFile0.lastModified());
+      assertTrue(mockFile0.canExecute());
+      assertTrue(mockFile0.isAbsolute());
+      assertFalse(mockFile0.isDirectory());
+      assertEquals(0L, mockFile0.length());
+      
+      String string1 = "edu.stanford.nlp.util.Interval";
+      // Undeclared exception!
+      try { 
+        StringUtils.trimWithEllipsis("edu.stanford.nlp.util.Interval", (-318));
+        fail("Expecting exception: StringIndexOutOfBoundsException");
+      
+      } catch(StringIndexOutOfBoundsException e) {
+      }
+  }
+  @Ignore
+  @Test(timeout = 4000)
+  public void test09()  throws Throwable  {
+      CategoryWordTag categoryWordTag0 = new CategoryWordTag("");
+      assertEquals("", categoryWordTag0.category());
+      assertEquals((-1), categoryWordTag0.endPosition());
+      assertNull(categoryWordTag0.word());
+      assertEquals((-1), categoryWordTag0.beginPosition());
+      assertNull(categoryWordTag0.tag());
+      assertEquals("", categoryWordTag0.value());
+      assertNotNull(categoryWordTag0);
+      assertTrue(CategoryWordTag.printWordTag);
+      assertFalse(CategoryWordTag.suppressTerminalDetails);
+      
+      categoryWordTag0.setCategoryWordTag("T~214E", "T~214E", "T~214E");
+      assertEquals("T~214E", categoryWordTag0.category());
+      assertEquals((-1), categoryWordTag0.endPosition());
+      assertEquals((-1), categoryWordTag0.beginPosition());
+      assertEquals("T~214E", categoryWordTag0.value());
+      assertEquals("T~214E", categoryWordTag0.tag());
+      assertEquals("T~214E", categoryWordTag0.word());
+      assertTrue(CategoryWordTag.printWordTag);
+      assertFalse(CategoryWordTag.suppressTerminalDetails);
+      
+      String string0 = categoryWordTag0.toString("T~214E");
+      assertEquals("T~214E", categoryWordTag0.category());
+      assertEquals((-1), categoryWordTag0.endPosition());
+      assertEquals((-1), categoryWordTag0.beginPosition());
+      assertEquals("T~214E", categoryWordTag0.value());
+      assertEquals("T~214E", categoryWordTag0.tag());
+      assertEquals("T~214E", categoryWordTag0.word());
+      assertNotNull(string0);
+      assertEquals("T~214E[T~214E/T~214E]", string0);
+      assertTrue(CategoryWordTag.printWordTag);
+      assertFalse(CategoryWordTag.suppressTerminalDetails);
+      
+      String string1 = categoryWordTag0.toString("tc+>Ztpzq");
+      assertEquals("T~214E", categoryWordTag0.category());
+      assertEquals((-1), categoryWordTag0.endPosition());
+      assertEquals((-1), categoryWordTag0.beginPosition());
+      assertEquals("T~214E", categoryWordTag0.value());
+      assertEquals("T~214E", categoryWordTag0.tag());
+      assertEquals("T~214E", categoryWordTag0.word());
+      assertNotNull(string1);
+      assertTrue(string1.equals((Object)string0));
+      assertEquals("T~214E[T~214E/T~214E]", string1);
+      assertTrue(CategoryWordTag.printWordTag);
+      assertFalse(CategoryWordTag.suppressTerminalDetails);
+      
+      categoryWordTag0.setCategoryWordTag("", "T~214E", "P{;Va),K{JU7");
+      assertEquals("", categoryWordTag0.category());
+      assertEquals((-1), categoryWordTag0.endPosition());
+      assertEquals("P{;Va),K{JU7", categoryWordTag0.tag());
+      assertEquals((-1), categoryWordTag0.beginPosition());
+      assertEquals("", categoryWordTag0.value());
+      assertEquals("T~214E", categoryWordTag0.word());
+      assertTrue(CategoryWordTag.printWordTag);
+      assertFalse(CategoryWordTag.suppressTerminalDetails);
+      
+      categoryWordTag0.setValue("tc+>Ztpzq");
+      assertEquals("tc+>Ztpzq", categoryWordTag0.value());
+      assertEquals((-1), categoryWordTag0.endPosition());
+      assertEquals("P{;Va),K{JU7", categoryWordTag0.tag());
+      assertEquals((-1), categoryWordTag0.beginPosition());
+      assertEquals("tc+>Ztpzq", categoryWordTag0.category());
+      assertEquals("T~214E", categoryWordTag0.word());
+      assertTrue(CategoryWordTag.printWordTag);
+      assertFalse(CategoryWordTag.suppressTerminalDetails);
+      
+      String string2 = StringUtils.padLeft((Object) categoryWordTag0, 35);
+      assertEquals("tc+>Ztpzq", categoryWordTag0.value());
+      assertEquals((-1), categoryWordTag0.endPosition());
+      assertEquals("P{;Va),K{JU7", categoryWordTag0.tag());
+      assertEquals((-1), categoryWordTag0.beginPosition());
+      assertEquals("tc+>Ztpzq", categoryWordTag0.category());
+      assertEquals("T~214E", categoryWordTag0.word());
+      assertNotNull(string2);
+      assertFalse(string2.equals((Object)string0));
+      assertFalse(string2.equals((Object)string1));
+      assertTrue(CategoryWordTag.printWordTag);
+      assertFalse(CategoryWordTag.suppressTerminalDetails);
+      
+      String string3 = StringUtils.trimWithEllipsis((Object) categoryWordTag0, 35);
+      assertEquals("tc+>Ztpzq", categoryWordTag0.value());
+      assertEquals((-1), categoryWordTag0.endPosition());
+      assertEquals("P{;Va),K{JU7", categoryWordTag0.tag());
+      assertEquals((-1), categoryWordTag0.beginPosition());
+      assertEquals("tc+>Ztpzq", categoryWordTag0.category());
+      assertEquals("T~214E", categoryWordTag0.word());
+      assertNotNull(string3);
+      assertFalse(string3.equals((Object)string2));
+      assertFalse(string3.equals((Object)string0));
+      assertFalse(string3.equals((Object)string1));
+      assertEquals("edu.stanford.nlp.ling.CategoryWo...", string3);
+      assertTrue(CategoryWordTag.printWordTag);
+      assertFalse(CategoryWordTag.suppressTerminalDetails);
+      
+      Object[] objectArray0 = new Object[6];
+      objectArray0[0] = (Object) "tc+>Ztpzq";
+      objectArray0[1] = (Object) "T~214E[T~214E/T~214E]";
+      objectArray0[2] = (Object) "tc+>Ztpzq";
+      objectArray0[3] = (Object) "T~214E[T~214E/T~214E]";
+      objectArray0[4] = (Object) "edu.stanford.nlp.ling.CategoryWordTag@0000000001";
+      objectArray0[5] = (Object) "edu.stanford.nlp.ling.CategoryWo...";
+      String string4 = StringUtils.join(objectArray0, "edu.stanford.nlp.ling.CategoryWo...");
+      assertEquals(6, objectArray0.length);
+      assertNotNull(string4);
+      assertFalse(string4.equals((Object)string1));
+      assertFalse(string4.equals((Object)string2));
+      assertFalse(string4.equals((Object)string3));
+      assertFalse(string4.equals((Object)string0));
+  }
+  @Ignore
+  @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      CategoryWordTag categoryWordTag0 = new CategoryWordTag();
+      assertNull(categoryWordTag0.category());
+      assertEquals((-1), categoryWordTag0.beginPosition());
+      assertNull(categoryWordTag0.tag());
+      assertNull(categoryWordTag0.value());
+      assertEquals((-1), categoryWordTag0.endPosition());
+      assertNull(categoryWordTag0.word());
+      assertNotNull(categoryWordTag0);
+      assertFalse(CategoryWordTag.suppressTerminalDetails);
+      assertTrue(CategoryWordTag.printWordTag);
+      
+      String string0 = categoryWordTag0.toString("");
+      assertNull(categoryWordTag0.category());
+      assertEquals((-1), categoryWordTag0.beginPosition());
+      assertNull(categoryWordTag0.tag());
+      assertNull(categoryWordTag0.value());
+      assertEquals((-1), categoryWordTag0.endPosition());
+      assertNull(categoryWordTag0.word());
+      assertNull(string0);
+      assertFalse(CategoryWordTag.suppressTerminalDetails);
+      assertTrue(CategoryWordTag.printWordTag);
+      
+      String string1 = StringUtils.padOrTrim((Object) categoryWordTag0, 2727);
+      assertNull(categoryWordTag0.category());
+      assertEquals((-1), categoryWordTag0.beginPosition());
+      assertNull(categoryWordTag0.tag());
+      assertNull(categoryWordTag0.value());
+      assertEquals((-1), categoryWordTag0.endPosition());
+      assertNull(categoryWordTag0.word());
+      assertNotNull(string1);
+      assertFalse(CategoryWordTag.suppressTerminalDetails);
+      assertTrue(CategoryWordTag.printWordTag);
+      
+      boolean boolean0 = StringUtils.isCapitalized(string1);
+      assertNull(categoryWordTag0.category());
+      assertEquals((-1), categoryWordTag0.beginPosition());
+      assertNull(categoryWordTag0.tag());
+      assertNull(categoryWordTag0.value());
+      assertEquals((-1), categoryWordTag0.endPosition());
+      assertNull(categoryWordTag0.word());
+      assertFalse(boolean0);
+      assertFalse(CategoryWordTag.suppressTerminalDetails);
+      assertTrue(CategoryWordTag.printWordTag);
+      
+      String string2 = StringUtils.padOrTrim("", 2727);
+      assertNotNull(string2);
+      assertFalse(string2.equals((Object)string1));
+      
+      Stack<HashableCoreMap> stack0 = new Stack<HashableCoreMap>();
+      assertTrue(stack0.empty());
+      assertEquals(0, stack0.size());
+      assertTrue(stack0.isEmpty());
+      assertEquals("[]", stack0.toString());
+      assertEquals(10, stack0.capacity());
+      assertNotNull(stack0);
+      
+      Class<WordLemmaTag>[] classArray0 = (Class<WordLemmaTag>[]) Array.newInstance(Class.class, 9);
+      Class<WordLemmaTag> class0 = WordLemmaTag.class;
+      classArray0[0] = class0;
+      Class<WordLemmaTag> class1 = WordLemmaTag.class;
+      classArray0[1] = class1;
+      Class<WordLemmaTag> class2 = WordLemmaTag.class;
+      classArray0[2] = class2;
+      Class<WordLemmaTag> class3 = WordLemmaTag.class;
+      classArray0[3] = class3;
+      Class<WordLemmaTag> class4 = WordLemmaTag.class;
+      classArray0[4] = class4;
+      Class<WordLemmaTag> class5 = WordLemmaTag.class;
+      classArray0[5] = class5;
+      Class<WordLemmaTag> class6 = WordLemmaTag.class;
+      classArray0[6] = class6;
+      Class<WordLemmaTag> class7 = WordLemmaTag.class;
+      classArray0[7] = class7;
+      Class<WordLemmaTag> class8 = WordLemmaTag.class;
+      classArray0[8] = class8;
+      String string3 = StringUtils.joinMultipleFields((List<? extends CoreMap>) stack0, (Class[]) classArray0, string2, "#", (String) null, 761, 2727);
+      assertEquals(9, classArray0.length);
+      assertTrue(stack0.empty());
+      assertEquals(0, stack0.size());
+      assertTrue(stack0.isEmpty());
+      assertEquals("[]", stack0.toString());
+      assertEquals(10, stack0.capacity());
+      assertNotNull(string3);
+      assertFalse(string2.equals((Object)string1));
+      assertFalse(string3.equals((Object)string2));
+      assertFalse(string3.equals((Object)string1));
+      assertEquals("", string3);
+      
+      String string4 = StringUtils.padLeftOrTrim("", 761);
+      assertNotNull(string4);
+      assertFalse(string4.equals((Object)string1));
+      assertFalse(string4.equals((Object)string3));
+      assertFalse(string4.equals((Object)string2));
+      assertEquals("                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ", string4);
+      
+      File file0 = MockFile.createTempFile("BZY^b", (String) null);
+      assertEquals(1392409281320L, file0.lastModified());
+      assertEquals(0L, file0.getFreeSpace());
+      assertEquals(0L, file0.length());
+      assertEquals(0L, file0.getTotalSpace());
+      assertEquals("BZY^b0.tmp", file0.getName());
+      assertFalse(file0.isDirectory());
+      assertTrue(file0.exists());
+      assertEquals("/tmp/BZY^b0.tmp", file0.toString());
+      assertTrue(file0.canExecute());
+      assertEquals(0L, file0.getUsableSpace());
+      assertFalse(file0.isHidden());
+      assertTrue(file0.isFile());
+      assertTrue(file0.canWrite());
+      assertTrue(file0.canRead());
+      assertTrue(file0.isAbsolute());
+      assertEquals("/tmp", file0.getParent());
+      assertNotNull(file0);
+      
+      StringUtils.printToFile(file0, "");
+      assertEquals(1392409281320L, file0.lastModified());
+      assertEquals(0L, file0.getFreeSpace());
+      assertEquals(0L, file0.length());
+      assertEquals(0L, file0.getTotalSpace());
+      assertEquals("BZY^b0.tmp", file0.getName());
+      assertFalse(file0.isDirectory());
+      assertTrue(file0.exists());
+      assertEquals("/tmp/BZY^b0.tmp", file0.toString());
+      assertTrue(file0.canExecute());
+      assertEquals(0L, file0.getUsableSpace());
+      assertFalse(file0.isHidden());
+      assertTrue(file0.isFile());
+      assertTrue(file0.canWrite());
+      assertTrue(file0.canRead());
+      assertTrue(file0.isAbsolute());
+      assertEquals("/tmp", file0.getParent());
+  }
   
 }

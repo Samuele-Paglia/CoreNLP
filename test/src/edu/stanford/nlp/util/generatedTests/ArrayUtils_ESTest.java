@@ -365,4 +365,307 @@ public class ArrayUtils_ESTest extends ArrayUtils_ESTest_scaffolding {
       ArrayUtils.compareArrays(integerArray0, integerArray1);
   }
 
+  @Test(timeout = 4000)
+  public void test011()  throws Throwable  {
+      double[][] doubleArray0 = new double[0][7];
+      ArrayUtils.toString(doubleArray0);
+      Integer[] integerArray0 = new Integer[5];
+      Integer integer0 = new Integer((-800));
+      integerArray0[0] = integer0;
+      integerArray0[1] = integerArray0[0];
+      Integer integer1 = new Integer((int) integerArray0[0]);
+      integerArray0[2] = integer1;
+      Integer integer2 = new Integer(1714);
+      integerArray0[3] = integer2;
+      Integer integer3 = new Integer((int) integerArray0[3]);
+      integerArray0[4] = integer3;
+      int[] intArray0 = ArrayUtils.toPrimitive(integerArray0);
+      ArrayUtils.gapEncodeList(intArray0);
+      float[] floatArray0 = new float[7];
+      floatArray0[0] = (float) (int)integerArray0[1];
+      floatArray0[1] = (float) (int)integerArray0[3];
+      floatArray0[2] = (float) (int)integerArray0[2];
+      floatArray0[3] = (float) (int)integerArray0[1];
+      floatArray0[4] = (float) (int)integerArray0[1];
+      floatArray0[5] = (float) (int)integerArray0[3];
+      floatArray0[6] = (float) (int)integerArray0[3];
+      ArrayUtils.toDouble(floatArray0);
+  }
+
+  @Test(timeout = 4000)
+  public void test012()  throws Throwable  {
+      Object[] objectArray0 = new Object[3];
+      Object object0 = new Object();
+      objectArray0[0] = object0;
+      Object object1 = new Object();
+      objectArray0[1] = object1;
+      Object object2 = new Object();
+      objectArray0[2] = object2;
+      ArrayUtils.subArray(objectArray0, (-1886), 521);
+      byte[] byteArray0 = new byte[6];
+      byteArray0[0] = (byte)95;
+      byteArray0[1] = (byte)0;
+      byteArray0[4] = (byte)0;
+      byteArray0[5] = (byte)117;
+      int[] intArray0 = ArrayUtils.gapDecode(byteArray0);
+      ArrayUtils.toDouble(intArray0);
+      Object[] objectArray1 = new Object[7];
+      objectArray1[0] = (Object) (byte)95;
+      objectArray1[1] = object2;
+      objectArray1[2] = (Object) (byte)95;
+      Object object3 = new Object();
+      objectArray1[3] = object3;
+      objectArray1[4] = (Object) (byte)95;
+      objectArray1[5] = object1;
+      objectArray1[6] = (Object) (byte)95;
+      Predicate<Pair> predicate0 = (Predicate<Pair>) mock(Predicate.class, new ViolatedAssumptionAnswer());
+      ArrayUtils.getSubListIndex(objectArray1, objectArray0, predicate0);
+  }
+
+  @Test(timeout = 4000)
+  public void test013()  throws Throwable  {
+      IntCounter<Integer> intCounter0 = new IntCounter<Integer>();
+      Set<Integer> set0 = intCounter0.keysAt(1147);
+      HashIndex<Integer> hashIndex0 = new HashIndex<Integer>(set0);
+      DeltaIndex<Integer> deltaIndex0 = new DeltaIndex<Integer>(hashIndex0, hashIndex0);
+      int[] intArray0 = ArrayUtils.asPrimitiveIntArray(deltaIndex0);
+      ArrayUtils.gapEncodeList(intArray0);
+  }
+
+  @Test(timeout = 4000)
+  public void test014()  throws Throwable  {
+      double[] doubleArray0 = new double[0];
+      ArrayUtils.copy(doubleArray0);
+      Object[] objectArray0 = new Object[8];
+      Object object0 = new Object();
+      objectArray0[0] = object0;
+      Object object1 = new Object();
+      objectArray0[1] = object1;
+      Object object2 = new Object();
+      objectArray0[2] = object2;
+      Object object3 = new Object();
+      objectArray0[3] = object3;
+      Object object4 = new Object();
+      objectArray0[4] = object4;
+      Object object5 = new Object();
+      objectArray0[5] = object5;
+      Object object6 = new Object();
+      objectArray0[6] = object6;
+      Object object7 = new Object();
+      objectArray0[7] = object7;
+      // Undeclared exception!
+      try { 
+        ArrayUtils.subArray(objectArray0, (-2611), (-1216));
+        fail("Expecting exception: NegativeArraySizeException");
+      
+      } catch(NegativeArraySizeException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("java.lang.reflect.Array", e);
+      }
+  }
+
+  @Test(timeout = 4000)
+  public void test015()  throws Throwable  {
+      double[][] doubleArray0 = new double[8][6];
+      double[] doubleArray1 = new double[3];
+      doubleArray1[0] = (-1029.528147324076);
+      doubleArray1[1] = 2232.935;
+      doubleArray1[2] = (-2554.475248688851);
+      doubleArray0[0] = doubleArray1;
+      double[] doubleArray2 = new double[6];
+      doubleArray2[0] = 2232.935;
+      doubleArray2[1] = (-1029.528147324076);
+      doubleArray2[2] = (-2554.475248688851);
+      doubleArray2[3] = 2232.935;
+      doubleArray2[4] = (-1029.528147324076);
+      doubleArray2[5] = (-2554.475248688851);
+      doubleArray0[1] = doubleArray2;
+      double[] doubleArray3 = new double[5];
+      doubleArray3[0] = 2232.935;
+      doubleArray3[1] = 20.0;
+      doubleArray3[2] = (-2554.475248688851);
+      doubleArray3[3] = 1196.85154234;
+      doubleArray3[4] = 2232.935;
+      doubleArray0[2] = doubleArray3;
+      double[] doubleArray4 = new double[6];
+      doubleArray4[0] = 20.0;
+      doubleArray4[1] = (-1029.528147324076);
+      doubleArray4[2] = (-1029.528147324076);
+      doubleArray4[3] = 2232.935;
+      doubleArray4[4] = 1196.85154234;
+      doubleArray4[5] = 20.0;
+      doubleArray0[3] = doubleArray4;
+      double[] doubleArray5 = new double[9];
+      doubleArray5[0] = 1196.85154234;
+      doubleArray5[1] = 20.0;
+      doubleArray5[2] = (-2554.475248688851);
+      doubleArray5[3] = 1196.85154234;
+      doubleArray5[4] = 1196.85154234;
+      doubleArray5[5] = 3.0E9;
+      doubleArray5[6] = 20.0;
+      doubleArray5[7] = 0.0;
+      doubleArray5[8] = (-2554.475248688851);
+      doubleArray0[4] = doubleArray5;
+      double[] doubleArray6 = new double[8];
+      doubleArray6[0] = 2232.935;
+      doubleArray6[1] = (-2554.475248688851);
+      doubleArray6[2] = (-2554.475248688851);
+      doubleArray6[3] = 0.0;
+      doubleArray6[4] = 2232.935;
+      doubleArray6[5] = 2232.935;
+      doubleArray6[6] = 2232.935;
+      doubleArray6[7] = (-1029.528147324076);
+      doubleArray0[5] = doubleArray6;
+      double[] doubleArray7 = new double[4];
+      doubleArray7[0] = (-2554.475248688851);
+      doubleArray7[1] = (-1029.528147324076);
+      doubleArray7[2] = 2232.935;
+      doubleArray7[3] = 3.0E9;
+      doubleArray0[6] = doubleArray7;
+      double[] doubleArray8 = new double[3];
+      doubleArray8[0] = 0.0;
+      doubleArray8[1] = 0.0;
+      doubleArray8[2] = 3.0E9;
+      doubleArray0[7] = doubleArray8;
+      double[][] doubleArray9 = new double[0][1];
+      ArrayUtils.equals(doubleArray0, doubleArray9);
+  }
+
+  @Test(timeout = 4000)
+  public void test016()  throws Throwable  {
+      ArrayUtils.toPrimitive((Integer[]) null, 930);
+      boolean[][] booleanArray0 = new boolean[6][6];
+      boolean[] booleanArray1 = new boolean[0];
+      booleanArray0[0] = booleanArray1;
+      boolean[] booleanArray2 = new boolean[5];
+      booleanArray2[0] = false;
+      booleanArray2[1] = true;
+      booleanArray2[2] = true;
+      booleanArray2[3] = true;
+      booleanArray2[4] = true;
+      booleanArray0[1] = booleanArray2;
+      boolean[] booleanArray3 = new boolean[7];
+      booleanArray3[0] = true;
+      booleanArray3[1] = true;
+      booleanArray3[2] = false;
+      booleanArray3[3] = true;
+      booleanArray3[4] = true;
+      booleanArray3[5] = true;
+      booleanArray3[6] = false;
+      booleanArray0[2] = booleanArray3;
+      boolean[] booleanArray4 = new boolean[6];
+      booleanArray4[0] = true;
+      booleanArray4[1] = false;
+      booleanArray4[2] = false;
+      booleanArray4[3] = true;
+      booleanArray4[4] = true;
+      booleanArray4[5] = true;
+      booleanArray0[3] = booleanArray4;
+      boolean[] booleanArray5 = new boolean[7];
+      booleanArray5[0] = true;
+      booleanArray5[1] = false;
+      booleanArray5[2] = true;
+      booleanArray5[3] = true;
+      booleanArray5[4] = true;
+      booleanArray5[5] = true;
+      booleanArray5[6] = true;
+      booleanArray0[4] = booleanArray5;
+      boolean[] booleanArray6 = new boolean[6];
+      booleanArray6[0] = true;
+      booleanArray6[1] = true;
+      booleanArray6[2] = true;
+      booleanArray6[3] = true;
+      booleanArray6[4] = true;
+      booleanArray6[5] = true;
+      booleanArray0[5] = booleanArray6;
+      ArrayUtils.toString(booleanArray0);
+  }
+
+  @Test(timeout = 4000)
+  public void test017()  throws Throwable  {
+      ArrayUtils.toPrimitive((Character[]) null, 'x');
+      Double[] doubleArray0 = new Double[6];
+      Double double0 = new Double((-1.0));
+      doubleArray0[0] = double0;
+      Double double1 = new Double(3194.559147974731);
+      doubleArray0[1] = double1;
+      Double double2 = new Double((double) doubleArray0[0]);
+      doubleArray0[2] = double2;
+      Double double3 = new Double((-1007.337801911));
+      doubleArray0[3] = double3;
+      Double double4 = new Double(1.0);
+      doubleArray0[5] = double1;
+      ArrayUtils.toPrimitive(doubleArray0);
+  }
+
+  @Test(timeout = 4000)
+  public void test018()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      intArray0[0] = 1223;
+      FileSystemHandling.shouldThrowIOException((EvoSuiteFile) null);
+      int int0 = (-2201);
+      intArray0[1] = (-2201);
+      intArray0[2] = 782;
+      int int1 = (-1);
+      intArray0[3] = (-1);
+      intArray0[4] = (-4304);
+      ArrayUtils.equalContents(intArray0, intArray0);
+      double[][] doubleArrayArray0 = null;
+      // Undeclared exception!
+      try { 
+        ArrayUtils.toString((double[][]) null);
+        fail("Expecting exception: NullPointerException");
+      
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("edu.stanford.nlp.util.ArrayUtils", e);
+      }
+  }
+
+  @Test(timeout = 4000)
+  public void test019()  throws Throwable  {
+      Object[] objectArray0 = new Object[8];
+      Object object0 = new Object();
+      objectArray0[0] = object0;
+      Object object1 = new Object();
+      objectArray0[1] = object1;
+      Object object2 = new Object();
+      objectArray0[2] = object2;
+      Object object3 = new Object();
+      objectArray0[3] = object3;
+      Object object4 = new Object();
+      objectArray0[4] = object4;
+      Object object5 = new Object();
+      objectArray0[5] = object5;
+      Object object6 = new Object();
+      objectArray0[6] = object6;
+      Object object7 = new Object();
+      objectArray0[7] = object7;
+      ArrayUtils.removeAt(objectArray0, (-659));
+      int[] intArray0 = new int[2];
+      intArray0[0] = (-659);
+      intArray0[1] = (-659);
+      List<Integer> list0 = ArrayUtils.asList(intArray0);
+      ArrayUtils.asPrimitiveIntArray(list0);
+      Long[] longArray0 = new Long[7];
+      Long long0 = new Long((-659));
+      longArray0[0] = long0;
+      Long long1 = Long.valueOf(1L);
+      longArray0[1] = long1;
+      Long.getLong("");
+      longArray0[2] = null;
+      Long long2 = new Long(1L);
+      longArray0[3] = long2;
+      Long long3 = new Long((long) longArray0[0]);
+      longArray0[4] = long3;
+      Long long4 = new Long((-659));
+      longArray0[5] = long4;
+      Long long5 = new Long((-1196L));
+      longArray0[6] = long5;
+      ArrayUtils.toPrimitive(longArray0, 2858L);
+  }
 }
